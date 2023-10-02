@@ -89,7 +89,6 @@ export class XmlParserService {
     const countries: Country[] = [];
     for (const countryData of countriesData) {
       const country = new Country();
-      console.log(countryData);
       country.code = countryData.code[0];
       country.name = countryData.name[0];
 

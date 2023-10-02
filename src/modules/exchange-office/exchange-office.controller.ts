@@ -3,7 +3,6 @@ import { XmlParserService } from '../../shared/xml-parser.service';
 import { ExchangeOfficeService } from './exchange-office.service';
 import { CountryService } from '../country/country.service';
 import { UtilsService } from '../../shared/utils.service';
-import { exchangeRates } from './exchange-rates';
 import { ClientProxy } from '@nestjs/microservices';
 import { firstValueFrom } from 'rxjs';
 
@@ -34,12 +33,15 @@ export class ExchangeOfficeController {
   @Get('/xml-from-file')
   async parseXmlFromLocalFile() {
     try {
-      console.log('__dirname', __dirname);
       const xmlData = await this.xmlParserService.parseXmlFile(
         './database-dump.xml',
       );
 
       const parsedData = await this.xmlParserService.parseXml(xmlData);
+
+      const exchangeRates = await firstValueFrom(
+        this.client.send<number>({ cmd: 'get-rates' }, {}),
+      );
 
       if (parsedData) {
         const data = this.xmlParserService.mapXmlDataToExchangeOffice(
@@ -59,9 +61,6 @@ export class ExchangeOfficeController {
 
   @Get('/top-profit-exchangers')
   async getTopProfitExchangers() {
-    const test = this.client.send<number>({ cmd: 'sum' }, [1, 2, 3]);
-    const p = await firstValueFrom(test);
-
     const topExchangeCountries =
       await this.exchangeOfficeService.getTopProfitExchangers();
 

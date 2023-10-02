@@ -7,8 +7,6 @@ import { ExchangeModule } from './modules/exchange/exchange.module';
 import { RateModule } from './modules/rate/rate.module';
 import { ExchangeOfficeModule } from './modules/exchange-office/exchange-office.module';
 import { SharedModule } from './shared/shared.module';
-import { MicroserviceModule } from './microservice/microservice.module';
-import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
   imports: [
@@ -29,7 +27,6 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     ExchangeModule,
     ExchangeOfficeModule,
     RateModule,
-    MicroserviceModule,
   ],
   controllers: [AppController],
   providers: [AppService],
