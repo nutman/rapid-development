@@ -6,14 +6,33 @@ services:
     volumes:
       - .:/app
     ports:
-      - 3000:3000
+      - "3000:3000"
     depends_on:
       - db
+    networks:
+      - app-network
+
   db:
     image: postgres:latest
+    networks:
+      - app-network
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: your_password
       POSTGRES_DB: mydatabase
     ports:
-      - 5432:5432
+      - "5432:5432"
+
+  microservice:
+    image: your-microservice-image-name
+    command: npm run start:dev
+    networks:
+      - app-network
+    build:
+      context: ./microservice
+    ports:
+      - "4000:4000"
+
+networks:
+  app-network:
+    driver: bridge

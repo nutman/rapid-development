@@ -1,7 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Connection, Repository } from 'typeorm';
 import { ExchangeOffice } from './exchange-office.entity';
+import { ClientProxy } from '@nestjs/microservices';
 
 @Injectable()
 export class ExchangeOfficeService {
@@ -9,7 +10,10 @@ export class ExchangeOfficeService {
     @InjectRepository(ExchangeOffice)
     private readonly exchangeOfficeRepository: Repository<ExchangeOffice>,
     private readonly connection: Connection,
-  ) {}
+    @Inject('MATH_SERVICE') private client: ClientProxy,
+  ) {
+    this.client.connect();
+  }
 
   async findAll(): Promise<ExchangeOffice[]> {
     return this.exchangeOfficeRepository.find();

@@ -1,9 +1,11 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Inject, Param } from '@nestjs/common';
 import { XmlParserService } from '../../shared/xml-parser.service';
 import { ExchangeOfficeService } from './exchange-office.service';
 import { CountryService } from '../country/country.service';
 import { UtilsService } from '../../shared/utils.service';
 import { exchangeRates } from './exchange-rates';
+import { ClientProxy } from '@nestjs/microservices';
+import { firstValueFrom } from 'rxjs';
 
 @Controller('db')
 export class ExchangeOfficeController {
@@ -12,7 +14,10 @@ export class ExchangeOfficeController {
     private readonly exchangeOfficeService: ExchangeOfficeService,
     private readonly countryService: CountryService,
     private readonly utilsService: UtilsService,
-  ) {}
+    @Inject('MATH_SERVICE') private readonly client: ClientProxy,
+  ) {
+    this.client.connect();
+  }
 
   @Get('/xml/:data')
   async parseXml(@Param('data') xmlData: string) {
@@ -29,8 +34,9 @@ export class ExchangeOfficeController {
   @Get('/xml-from-file')
   async parseXmlFromLocalFile() {
     try {
+      console.log('__dirname', __dirname);
       const xmlData = await this.xmlParserService.parseXmlFile(
-        __dirname + '/../database-dump.xml',
+        './database-dump.xml',
       );
 
       const parsedData = await this.xmlParserService.parseXml(xmlData);
@@ -53,6 +59,9 @@ export class ExchangeOfficeController {
 
   @Get('/top-profit-exchangers')
   async getTopProfitExchangers() {
+    const test = this.client.send<number>({ cmd: 'sum' }, [1, 2, 3]);
+    const p = await firstValueFrom(test);
+
     const topExchangeCountries =
       await this.exchangeOfficeService.getTopProfitExchangers();
 
