@@ -1,15 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import {
-  Connection,
-  createQueryBuilder,
-  getConnection,
-  Repository,
-  SelectQueryBuilder,
-} from 'typeorm';
+import { Connection, Repository } from 'typeorm';
 import { ExchangeOffice } from './exchange-office.entity';
-import { Exchange } from '../exchange/exchange.entity';
-import { getManager } from 'typeorm';
 
 @Injectable()
 export class ExchangeOfficeService {
