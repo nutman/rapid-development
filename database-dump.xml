@@ -1,0 +1,306 @@
+<database>
+    <exchange-offices>
+        <exchange-office>
+            <id>1</id>
+            <name>Exchanger 1</name>
+            <country>UKR</country>
+            <exchanges>
+                <exchange>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <ask>110</ask>
+                    <date>2023-04-24 22:55:33</date>
+                </exchange>
+                <exchange>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <ask>400</ask>
+                    <date>2023-04-24 22:55:33</date>
+                </exchange>
+            </exchanges>
+            <rates>
+                <rate>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <in>1.1</in>
+                    <out>1</out>
+                    <reserve>120000</reserve>
+                    <date>2023-04-24 22:55:33</date>
+                </rate>
+                <rate>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <in>1</in>
+                    <out>40</out>
+                    <reserve>150000</reserve>
+                    <date>2023-04-24 22:55:33</date>
+                </rate>
+            </rates>
+        </exchange-office>
+        <exchange-office>
+            <id>1</id>
+            <name>Exchanger 1</name>
+            <country>UKR</country>
+            <exchanges>
+                <exchange>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <ask>110</ask>
+                    <date>2023-04-24 22:55:33</date>
+                </exchange>
+                <exchange>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <ask>400</ask>
+                    <date>2023-04-24 22:55:33</date>
+                </exchange>
+            </exchanges>
+            <rates>
+                <rate>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <in>1.1</in>
+                    <out>1</out>
+                    <reserve>120000</reserve>
+                    <date>2023-04-24 22:55:33</date>
+                </rate>
+                <rate>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <in>1</in>
+                    <out>40</out>
+                    <reserve>150000</reserve>
+                    <date>2023-04-24 22:55:33</date>
+                </rate>
+            </rates>
+        </exchange-office>
+        <exchange-office>
+            <id>1</id>
+            <name>Exchanger 22</name>
+            <country>UKR</country>
+            <exchanges>
+                <exchange>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <ask>111</ask>
+                    <date>2023-09-24 22:55:33</date>
+                </exchange>
+                <exchange>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <ask>113</ask>
+                    <date>2023-09-24 22:55:33</date>
+                </exchange>
+            </exchanges>
+            <rates>
+                <rate>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <in>1.1</in>
+                    <out>1</out>
+                    <reserve>120000</reserve>
+                    <date>2023-09-24 22:55:33</date>
+                </rate>
+                <rate>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <in>1</in>
+                    <out>40</out>
+                    <reserve>150000</reserve>
+                    <date>2023-09-24 22:55:33</date>
+                </rate>
+            </rates>
+        </exchange-office>
+        <exchange-office>
+            <id>1</id>
+            <name>Exchanger 3</name>
+            <country>UKR</country>
+            <exchanges>
+                <exchange>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <ask>222</ask>
+                    <date>2023-09-24 22:55:33</date>
+                </exchange>
+                <exchange>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <ask>224</ask>
+                    <date>2023-09-24 22:55:33</date>
+                </exchange>
+            </exchanges>
+            <rates>
+                <rate>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <in>1.1</in>
+                    <out>1</out>
+                    <reserve>120000</reserve>
+                    <date>2023-09-24 22:55:33</date>
+                </rate>
+                <rate>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <in>1</in>
+                    <out>40</out>
+                    <reserve>150000</reserve>
+                    <date>2023-09-24 22:55:33</date>
+                </rate>
+            </rates>
+        </exchange-office>
+        <exchange-office>
+            <id>1</id>
+            <name>Exchanger 4</name>
+            <country>USA</country>
+            <exchanges>
+                <exchange>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <ask>333</ask>
+                    <date>2023-09-24 22:55:33</date>
+                </exchange>
+                <exchange>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <ask>335</ask>
+                    <date>2023-09-24 22:55:33</date>
+                </exchange>
+            </exchanges>
+            <rates>
+                <rate>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <in>1.1</in>
+                    <out>1</out>
+                    <reserve>120000</reserve>
+                    <date>2023-09-24 22:55:33</date>
+                </rate>
+                <rate>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <in>1</in>
+                    <out>40</out>
+                    <reserve>150000</reserve>
+                    <date>2023-09-24 22:55:33</date>
+                </rate>
+            </rates>
+        </exchange-office>
+        <exchange-office>
+            <id>1</id>
+            <name>Exchanger 5</name>
+            <country>USA</country>
+            <exchanges>
+                <exchange>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <ask>444</ask>
+                    <date>2023-09-24 22:55:33</date>
+                </exchange>
+                <exchange>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <ask>444</ask>
+                    <date>2023-09-24 22:55:33</date>
+                </exchange>
+            </exchanges>
+            <rates>
+                <rate>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <in>1.1</in>
+                    <out>1</out>
+                    <reserve>120000</reserve>
+                    <date>2023-09-24 22:55:33</date>
+                </rate>
+                <rate>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <in>1</in>
+                    <out>40</out>
+                    <reserve>150000</reserve>
+                    <date>2023-09-24 22:55:33</date>
+                </rate>
+            </rates>
+        </exchange-office>
+        <exchange-office>
+            <id>2</id>
+            <name>Exchanger 2</name>
+            <country>USA</country>
+            <rates>
+                <rate>
+                    <from>AUD</from>
+                    <to>CAD</to>
+                    <in>1</in>
+                    <out>2</out>
+                    <reserve>150000</reserve>
+                    <date>2023-04-24 22:55:33</date>
+                </rate>
+            </rates>
+        </exchange-office>
+        <exchange-office>
+            <id>98</id>
+            <name>Exchanger 2</name>
+            <country>GBP</country>
+            <rates>
+                <rate>
+                    <from>AUD</from>
+                    <to>CAD</to>
+                    <in>1</in>
+                    <out>2</out>
+                    <reserve>150000</reserve>
+                    <date>2023-04-24 22:55:33</date>
+                </rate>
+            </rates>
+            <exchanges>
+                <exchange>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <ask>10</ask>
+                    <date>2023-09-24 22:55:33</date>
+                </exchange>
+                <exchange>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <ask>15</ask>
+                    <date>2023-09-24 22:55:33</date>
+                </exchange>
+            </exchanges>
+        </exchange-office>
+        <exchange-office>
+            <id>99</id>
+            <name>Exchanger 2</name>
+            <country>EUR</country>
+            <rates>
+                <rate>
+                    <from>AUD</from>
+                    <to>CAD</to>
+                    <in>1</in>
+                    <out>2</out>
+                    <reserve>150000</reserve>
+                    <date>2023-04-24 22:55:33</date>
+                </rate>
+
+            </rates>
+            <exchanges>
+                <exchange>
+                    <from>EUR</from>
+                    <to>USD</to>
+                    <ask>10</ask>
+                    <date>2023-09-24 22:55:33</date>
+                </exchange>
+                <exchange>
+                    <from>USD</from>
+                    <to>UAH</to>
+                    <ask>15</ask>
+                    <date>2023-09-24 22:55:33</date>
+                </exchange>
+            </exchanges>
+        </exchange-office>
+    </exchange-offices>
+    <countries>
+        <country>
+            <code>UKR</code>
+            <name>Ukraine</name>
+        </country>
+    </countries>
+</database>
