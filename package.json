@@ -25,6 +25,7 @@
     "@nestjs/microservices": "^10.2.6",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.0",
+    "ioredis": "^5.3.2",
     "pg": "^8.11.3",
     "postgres": "^3.3.5",
     "reflect-metadata": "^0.1.13",

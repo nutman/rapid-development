@@ -5,6 +5,7 @@ import { CountryService } from '../country/country.service';
 import { UtilsService } from '../../shared/utils.service';
 import { ClientProxy } from '@nestjs/microservices';
 import { firstValueFrom } from 'rxjs';
+import * as path from 'path';
 
 @Controller('db')
 export class ExchangeOfficeController {
@@ -33,11 +34,21 @@ export class ExchangeOfficeController {
   @Get('/xml-from-file')
   async parseXmlFromLocalFile() {
     try {
-      const xmlData = await this.xmlParserService.parseXmlFile(
-        './database-dump.xml',
-      );
+      const extname = path.extname('./database-dump.xml');
 
-      const parsedData = await this.xmlParserService.parseXml(xmlData);
+      let parsedData = '';
+
+      switch (extname) {
+        case '.xml':
+          const xmlData = await this.xmlParserService.parseXmlFile(
+            './database-dump.xml',
+          );
+          parsedData = await this.xmlParserService.parseXml(xmlData);
+          break;
+
+        default:
+          break;
+      }
 
       const exchangeRates = await firstValueFrom(
         this.client.send<number>({ cmd: 'get-rates' }, {}),

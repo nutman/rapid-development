@@ -9,10 +9,9 @@ export class ExchangeOfficeService {
   constructor(
     @InjectRepository(ExchangeOffice)
     private readonly exchangeOfficeRepository: Repository<ExchangeOffice>,
-    private readonly connection: Connection,
-    @Inject('MATH_SERVICE') private client: ClientProxy,
+    private readonly connection: Connection, // @Inject('MATH_SERVICE') private client: ClientProxy,
   ) {
-    this.client.connect();
+    // this.client.connect();
   }
 
   async findAll(): Promise<ExchangeOffice[]> {

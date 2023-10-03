@@ -16,16 +16,6 @@ import {
   imports: [
     SharedModule,
 
-    // ClientsModule.register([
-    //   {
-    //     name: 'MATH_SERVICE',
-    //     transport: Transport.TCP, // Use the appropriate transport (e.g., TCP, Redis)
-    //     options: {
-    //       host: '0.0.0.0',
-    //       port: 4000,
-    //     },
-    //   },
-    // ]),
     TypeOrmModule.forFeature([ExchangeOffice, ExchangeOfficeRepository]),
 
     CountryModule,

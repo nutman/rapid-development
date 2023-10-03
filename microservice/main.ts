@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { Transport, MicroserviceOptions } from '@nestjs/microservices';
 import { AppModule } from './src/app.module';
+import { RedisService } from './src/redis/redis.service';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
@@ -14,6 +15,8 @@ async function bootstrap() {
     },
   );
 
+  const redisService = app.get(RedisService);
+  await redisService.getClient();
   await app.listen();
 }
 bootstrap();
