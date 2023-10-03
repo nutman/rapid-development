@@ -25,8 +25,16 @@ export class AppController {
     return exchangeRates;
   }
 
-  @MessagePattern({ cmd: 'hello' })
-  async hello(): Promise<any> {
-    return 'hello';
+  @MessagePattern({ cmd: 'get-top-exchangers' })
+  async getTopExchangers(): Promise<any> {
+    const res = await this.cachingService.get('TOP_EXCHANGERS');
+    return JSON.parse(res);
+  }
+
+  @MessagePattern({ cmd: 'set-top-exchangers' })
+  async setTopExchangers(data): Promise<any> {
+    await this.cachingService.set('TOP_EXCHANGERS', JSON.stringify(data));
+
+    return true;
   }
 }

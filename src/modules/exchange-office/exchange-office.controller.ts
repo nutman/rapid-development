@@ -72,6 +72,15 @@ export class ExchangeOfficeController {
 
   @Get('/top-profit-exchangers')
   async getTopProfitExchangers() {
+    const topExchangers = await firstValueFrom(
+      this.client.send<number>({ cmd: 'get-top-exchangers' }, {}),
+    );
+
+    if (topExchangers) {
+      console.log('top exchangers have been taken from redis via microservice');
+      return topExchangers;
+    }
+
     const topExchangeCountries =
       await this.exchangeOfficeService.getTopProfitExchangers();
 
@@ -84,6 +93,10 @@ export class ExchangeOfficeController {
         );
       res.push(office);
     }
+
+    await firstValueFrom(
+      this.client.send<number>({ cmd: 'set-top-exchangers' }, res),
+    );
 
     return res;
   }
