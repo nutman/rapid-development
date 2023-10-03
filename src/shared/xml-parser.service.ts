@@ -7,6 +7,7 @@ import { Exchange } from '../modules/exchange/exchange.entity';
 import { UtilsService } from './utils.service';
 import * as fs from 'fs';
 import { promisify } from 'util';
+import * as path from 'path';
 
 const readFileAsync = promisify(fs.readFile);
 
@@ -22,6 +23,24 @@ export class XmlParserService {
         resolve(result);
       });
     });
+  }
+
+  async getDataFromFile(filePath: string): Promise<string> {
+    const extname = path.extname(filePath);
+
+    let parsedData = '';
+
+    switch (extname) {
+      case '.xml':
+        const xmlData = await this.parseXmlFile('./database-dump.xml');
+        parsedData = await this.parseXml(xmlData);
+        break;
+
+      default:
+        break;
+    }
+
+    return parsedData;
   }
 
   async parseXmlFile(filePath: string): Promise<any> {

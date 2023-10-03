@@ -2,17 +2,16 @@ import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Connection, Repository } from 'typeorm';
 import { ExchangeOffice } from './exchange-office.entity';
-import { ClientProxy } from '@nestjs/microservices';
+import path from 'path';
+import { XmlParserService } from '../../shared/xml-parser.service';
 
 @Injectable()
 export class ExchangeOfficeService {
   constructor(
     @InjectRepository(ExchangeOffice)
     private readonly exchangeOfficeRepository: Repository<ExchangeOffice>,
-    private readonly connection: Connection, // @Inject('MATH_SERVICE') private client: ClientProxy,
-  ) {
-    // this.client.connect();
-  }
+    private readonly connection: Connection,
+  ) {}
 
   async findAll(): Promise<ExchangeOffice[]> {
     return this.exchangeOfficeRepository.find();

@@ -17,6 +17,7 @@ export class AppController {
     }
 
     // Make some 3rd party API call and cache it in this case it was imported from exchange-rates.ts
+    // Also, you can cache the market data mentioned in the Test Task
     console.log('Made some 3rd party API call and cache it');
     await this.cachingService.set(
       'EXCHANGE_RATES',
