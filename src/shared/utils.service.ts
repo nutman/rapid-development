@@ -4,14 +4,16 @@ import { Injectable } from '@nestjs/common';
 export class UtilsService {
   calculateProfit(
     initialAmount: number,
-    exchangeRates: Record<
+    er: Record<
       string,
       { [targetCurrency: string]: { buyRate: number; sellRate: number } }
     >,
     baseCurrency: string,
     targetCurrency: string,
   ) {
+    const exchangeRates = er;
     const rates = exchangeRates[baseCurrency];
+    console.log('exchangeRates', rates, baseCurrency, rates[baseCurrency]);
 
     if (!rates || !rates[targetCurrency]) {
       throw new Error('Invalid exchange pair or rates not available.');

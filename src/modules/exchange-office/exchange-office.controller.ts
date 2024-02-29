@@ -32,41 +32,40 @@ export class ExchangeOfficeController {
 
   @Get('/xml-from-file')
   async parseXmlFromLocalFile() {
-    try {
-      const parsedData = await this.xmlParserService.getDataFromFile(
-        './database-dump.xml',
+    // try {
+    const parsedData = await this.xmlParserService.getDataFromFile(
+      './database-dump.yml',
+    );
+    // return parsedData;
+    const exchangeRates = await firstValueFrom(
+      this.client.send<number>({ cmd: 'get-rates' }, {}),
+    );
+    if (parsedData) {
+      const data = this.xmlParserService.mapXmlDataToExchangeOffice(
+        parsedData,
+        exchangeRates,
       );
-
-      const exchangeRates = await firstValueFrom(
-        this.client.send<number>({ cmd: 'get-rates' }, {}),
-      );
-
-      if (parsedData) {
-        const data = this.xmlParserService.mapXmlDataToExchangeOffice(
-          parsedData,
-          exchangeRates,
-        );
-        await this.countryService.create(data.Countries);
-        await this.exchangeOfficeService.create(data.ExchangeOffices);
-      }
-      // Process the parsed data as needed
-      return { message: 'Data saved' };
-    } catch (error) {
-      // Handle parsing errors
-      throw new Error(`Failed to parse XML data, ${error}`);
+      await this.countryService.create(data.Countries);
+      await this.exchangeOfficeService.create(data.ExchangeOffices);
     }
+    // Process the parsed data as needed
+    return { message: 'Data saved' };
+    // } catch (error) {
+    //   // Handle parsing errors
+    //   throw new Error(`Failed to parse XML data, ${error}`);
+    // }
   }
 
   @Get('/top-profit-exchangers')
   async getTopProfitExchangers() {
-    const topExchangers = await firstValueFrom(
-      this.client.send<number>({ cmd: 'get-top-exchangers' }, {}),
-    );
-
-    if (topExchangers) {
-      console.log('top exchangers have been taken from redis via microservice');
-      return topExchangers;
-    }
+    // const topExchangers = await firstValueFrom(
+    //   this.client.send<number>({ cmd: 'get-top-exchangers' }, {}),
+    // );
+    //
+    // if (topExchangers) {
+    //   console.log('top exchangers have been taken from redis via microservice');
+    //   return topExchangers;
+    // }
 
     const topExchangeCountries =
       await this.exchangeOfficeService.getTopProfitExchangers();

@@ -13,7 +13,7 @@ export class AppController {
 
     if (cachedValue) {
       console.log('Got from Cache');
-      return cachedValue;
+      return JSON.parse(String(cachedValue));
     }
 
     // Make some 3rd party API call and cache it in this case it was imported from exchange-rates.ts
