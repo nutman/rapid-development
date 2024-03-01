@@ -1,3 +1,6 @@
+### The main goal of this repository is to show how rapidly develop complex system
+
+
 ## Installation and running the app
 to run the app use:
 
